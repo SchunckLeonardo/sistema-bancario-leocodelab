@@ -11,6 +11,7 @@ namespace Application.repository
     {
         public CurrentAccount Get(string accountNumber);
         public void Save(CurrentAccount account);
+        public void Update(CurrentAccount account);
         public void Delete(string accountNumber);
     }
 }

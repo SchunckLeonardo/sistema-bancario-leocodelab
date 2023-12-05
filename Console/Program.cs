@@ -1,6 +1,7 @@
 ﻿using Application.command;
 using Application.repository;
 using Application.usecase;
+using Domain.account;
 using Infra.repository;
 using System;
 using System.Collections.Generic;
@@ -44,25 +45,30 @@ namespace ConsoleApp
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine("1 - Ver Saldo\n2 - Depositar\n3 - Sacar\n4 - Ver suas informações");
             var choice = Console.ReadLine();
-            switch (choice)
+
+
+            if (choice == "1")
             {
-                case "1":
-                    Console.WriteLine("Digite o número da conta");
-                    var accountNumber = Console.ReadLine();
-                    var getAccountCommand = new GetAccountCommand(accountNumber, accountRepository);
-                    var account = getAccountCommand.Execute();
-                    Console.WriteLine($"Seu saldo é de R${account.Balance}");
-                    break;
-                case "2":
-                    Console.WriteLine("Este mês tem 28 ou 29 dias");
-                    break;
-                case "3":
-                    Console.WriteLine("Este mês tem 30 dias");
-                    break;
-                case "4":
-                    Console.WriteLine("Este mês tem 30 dias");
-                    break;
+                Console.WriteLine("Digite o número da conta");
+                var accountNumber = Console.ReadLine();
+                var getAccountCommand = new GetAccountCommand(accountNumber, accountRepository);
+                var account = getAccountCommand.Execute();
+                Console.WriteLine($"Seu saldo é de R${account.Balance}");
             }
+            else if (choice == "2")
+            {
+                Console.WriteLine("Digite o número da conta");
+                var accountNumber = Console.ReadLine();
+                var getAccountCommand = new GetAccountCommand(accountNumber, accountRepository);
+                var account = getAccountCommand.Execute();
+                Console.WriteLine("Qual valor deseja depositar?");
+                var amount = Console.ReadLine();
+                var depositCommand = new DepositCommand(account,Double.Parse(amount),accountRepository);
+                depositCommand.Execute();
+                Console.WriteLine($"Seu saldo agora é de R${account.Balance}");
+            }
+               
+            
         }
 
     }

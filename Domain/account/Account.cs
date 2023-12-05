@@ -15,9 +15,9 @@ namespace Domain.account
         public double Balance { get; protected set; }
         public CPF ClientCPF { get; }
 
-        public abstract void Credit(int amount);
+        public abstract void Credit(double amount);
 
-        public abstract void Deposit(int amount);
+        public abstract void Deposit(double amount);
 
         public Account(string number, string agency, string bank, int initialBalance, string clientCPF)
         {

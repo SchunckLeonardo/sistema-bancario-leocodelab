@@ -28,6 +28,14 @@ namespace Infra.repository
         {
             Accounts.Add(account);
         }
+        public void Update(CurrentAccount account)
+        {
+            var index = Accounts.FindIndex(Account => Account.Number == account.Number);
+            if(index != -1)
+            {
+                Accounts[index] = account;
+            }
+        }
         public void Delete(string accountNumber)
         {
             var account = Get(accountNumber);

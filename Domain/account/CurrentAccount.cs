@@ -15,12 +15,12 @@ namespace Domain.account
             return new CurrentAccount(accountNumber, accountAgency, bank, cpf);
         }
 
-        public override void Credit(int amount)
+        public override void Credit(double amount)
         {
             Balance -= amount;
         }
 
-        public override void Deposit(int amount)
+        public override void Deposit(double amount)
         {
             Balance += amount;
         }
