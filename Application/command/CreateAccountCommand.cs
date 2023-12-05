@@ -1,4 +1,5 @@
 ﻿using Application.command;
+using Application.repository;
 using Domain.account;
 using Domain.client;
 using System;
@@ -10,9 +11,11 @@ namespace Application.usecase
     {
         public string Operation { get; set; } = "CreateAccount";
         private string CPF { get; }
-        public CreateAccountCommand(string cpf) 
+        private readonly AccountRepository _repository;
+        public CreateAccountCommand(string cpf, AccountRepository repository) 
         {
               CPF = cpf;
+            _repository = repository;
         }
 
         public CurrentAccount Execute()
@@ -22,6 +25,7 @@ namespace Application.usecase
             var accountAgency = $"{new Random().Next(00, 10)}";
             var account = CurrentAccount.Create(accountNumber, accountBank, accountAgency, CPF);
 
+            _repository.Save(account);
             return account;
         }
     }

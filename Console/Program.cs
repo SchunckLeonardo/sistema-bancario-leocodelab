@@ -1,5 +1,6 @@
 ﻿using Application.command;
 using Application.usecase;
+using Infra.repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace ConsoleApp
     {
         static void Main(string[] arg)
         {
+            var accountRepository = new AccountRepositoryMemory();
+            var clientRepository = new ClientRepositoryMemory();
 
             Console.WriteLine("Seja bem-vindo!");
             Console.WriteLine("Digite seu nome");
@@ -19,15 +22,12 @@ namespace ConsoleApp
 
             Console.WriteLine("Digite seu CPF");
             var cpf = Console.ReadLine();
-            var clientCreateCommand = new CreateClientCommand(name, cpf);
+            var clientCreateCommand = new CreateClientCommand(name, cpf, clientRepository);
             var client = clientCreateCommand.Execute();
 
-            var createAccountCommand = new CreateAccountCommand(cpf);
+            var createAccountCommand = new CreateAccountCommand(cpf, accountRepository);
             var account = createAccountCommand.Execute();
-            Console.WriteLine($"O número da sua conta é {account.Number}");
-            Console.WriteLine($"O saldo da sua conta é {account.Balance}");
-            Console.WriteLine($"O banco da sua conta é {account.Bank}");
-            Console.WriteLine($"A agência da sua conta é {account.Agency}");
+            
         }
     }
 
