@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.account
 {
     public class CurrentAccount : Account
-    { 
-        public CurrentAccount(string number, string agency,string bank) :base(number, agency, bank ,0){}
+    {
+        public CurrentAccount(string number, string agency, string bank, string cpf) : base(number, agency, bank, 0, cpf) { }
 
-        public static CurrentAccount Create(string accountNumber, string accountAgency, string bank) 
+        public static CurrentAccount Create(string accountNumber, string accountAgency, string bank, string cpf)
         {
-            return new CurrentAccount(accountNumber, accountAgency, bank);
+            return new CurrentAccount(accountNumber, accountAgency, bank, cpf);
         }
 
         public override void Credit(int amount)

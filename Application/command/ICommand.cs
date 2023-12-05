@@ -9,6 +9,7 @@ namespace Application.command
     public interface ICommand<T>
     {
         public string Operation {  get; set; }
-        public T Execute();    
+        public T Execute();
+
     }
 }
