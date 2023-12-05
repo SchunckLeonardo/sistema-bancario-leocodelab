@@ -11,6 +11,7 @@ namespace Application.command
         public string Operation { get; set; } = "CreateClient";
         private string Name { get;set; }
         private string CPF { get; set; }
+
         private readonly ClientRepository _repository;
 
         public CreateClientCommand(string name, string cpf, ClientRepository repository)

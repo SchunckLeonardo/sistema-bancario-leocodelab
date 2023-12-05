@@ -22,8 +22,8 @@ namespace Application.usecase
         {
             var accountNumber = $"{new Random().Next(00000, 99999)}-{new Random().Next(0, 9)}";
             var accountBank = "0001";
-            var accountAgency = $"{new Random().Next(00, 10)}";
-            var account = CurrentAccount.Create(accountNumber, accountBank, accountAgency, CPF);
+            var accountAgency = $"{new Random().Next(00, 100)}";
+            var account = CurrentAccount.Create(accountNumber, accountAgency,accountBank, CPF);
 
             _repository.Save(account);
             return account;

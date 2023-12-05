@@ -10,13 +10,18 @@ namespace Domain.account
     {
         public CurrentAccount(string number, string agency, string bank, string cpf) : base(number, agency, bank, 0, cpf) { }
 
-        public static CurrentAccount Create(string accountNumber, string accountAgency, string bank, string cpf)
+        public static CurrentAccount Create(string accountNumber, string accountAgency, string accountBank, string cpf)
         {
-            return new CurrentAccount(accountNumber, accountAgency, bank, cpf);
+            return new CurrentAccount(accountNumber, accountAgency, accountBank, cpf);
         }
 
         public override void Credit(double amount)
         {
+            if(amount > Balance)
+            {
+                throw new Exception("Balance is not enough");
+            }
+
             Balance -= amount;
         }
 
