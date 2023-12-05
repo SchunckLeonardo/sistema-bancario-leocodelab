@@ -1,0 +1,28 @@
+{
+  "name": "sistema-bancario-leocodelab-igorcbraz",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Bem-vindo ao Desafio do Sistema Bancário Simples! Neste desafio, você terá a oportunidade de criar um sistema bancário básico utilizando o terminal. Este projeto simples, mas impactante, irá ajudá-lo a desenvolver suas habilidades de programação e criar um projeto real para adicionar ao seu portfólio.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Igorcbraz/sistema-bancario-leocodelab.git"
+  },
+  "author": "Igorcbraz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Igorcbraz/sistema-bancario-leocodelab/issues"
+  },
+  "homepage": "https://github.com/Igorcbraz/sistema-bancario-leocodelab#readme",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "figlet": "^1.7.0",
+    "inquirer": "^9.2.12",
+    "ora": "^7.0.1",
+    "shelljs": "^0.8.5"
+  }
+}
