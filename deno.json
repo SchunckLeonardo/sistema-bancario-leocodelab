@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts",
+    "start": "deno run --allow-env=PORT --allow-net --allow-sys --allow-read main.ts"
+  }
+}

@@ -12,16 +12,10 @@ git clone https://github.com/Igorcbraz/sistema-bancario-leocodelab
 cd sistema-bancario-leocodelab
 ```
 
-3. Instale as dependências
+3. Rode o projeto 
 
 ```
-npm install
-```
-
-4. Rode o projeto
-
-```
-npm start
+deno task start
 ```
 
 ## Desafio
